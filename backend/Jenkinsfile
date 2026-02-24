@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+         stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Pull Backend Code') {
             steps {
                 sh 'sudo -u ubuntu git -C /home/ubuntu/Kubernetes/backend pull'
