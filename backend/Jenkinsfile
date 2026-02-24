@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Pull Backend Code') {
+            steps {
+                sh 'sudo -u ubuntu git -C /home/ubuntu/Kubernetes/backend pull'
+            }
+        }
+
+        stage('Install Backend Dependencies') {
+            steps {
+                sh '''
+                sudo -u ubuntu bash -c "
+                source /home/ubuntu/Kubernetes/frontend/venv/bin/activate &&
+                pip install -r /home/ubuntu/Kubernetes/backend/requirement.txt"
+                '''
+            }
+        }
+
+        stage('Restart Backend App') {
+            steps {
+                sh 'sudo -u ubuntu pm2 restart backend-app'
+            }
+        }
+    }
+}
