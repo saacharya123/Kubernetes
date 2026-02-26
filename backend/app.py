@@ -29,7 +29,7 @@ def signup():
     collection.insert_one(form_data)
     print(form_data)
 
-    return f"signnedup suuccessfully...!!"
+    return f"congrats signUp suuccessfully...!!"
 
 @app.route('/view')
 def view():
