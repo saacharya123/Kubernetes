@@ -25,7 +25,7 @@ def signup():
     # FRONTEND sends JSON to backend
     requests.post(BACKEND_URL + '/signup', json=form_data)
    
-    return f"YOU HAVE SIGNEDUP!!"
+    return f"HOLAAA... SIGNEDUP!!"
 
 
 if __name__=='__main__':
